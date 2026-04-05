@@ -84,6 +84,16 @@
               :rules="[val => !!val || 'Role is required']" 
             />
 
+            <q-select 
+              v-if="editMode"
+              v-model="form.status" 
+              :options="statusOptions" 
+              label="Status" 
+              outlined 
+              dense 
+              class="q-mb-md" 
+            />
+
             <div class="row q-gutter-sm">
               <q-btn type="submit" label="Save" color="primary" :loading="saving" />
               <q-btn label="Cancel" color="grey" flat @click="showDialog = false" />
@@ -120,10 +130,12 @@ export default {
       id: null,
       email: '',
       password: '',
-      role: ''
+      role: '',
+      status: 'active'
     })
 
     const roleOptions = ['Admin', 'Analyst', 'Viewer']
+    const statusOptions = ['active', 'inactive']
 
     const columns = [
       { name: 'id', label: 'ID', field: 'id', align: 'left', sortable: true },
@@ -189,7 +201,8 @@ export default {
         id: user.id,
         email: user.email,
         password: '',
-        role: user.role
+        role: user.role,
+        status: user.status
       }
       showDialog.value = true
     }
