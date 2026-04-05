@@ -107,5 +107,35 @@ app.register_blueprint(dashboard_bp)
 def index():
     return jsonify(ok=True, msg="Finance Backend API is running")
 
+@app.route('/init-db')
+def init_database():
+    """Initialize database tables and create default admin user (one-time use)"""
+    try:
+        from models.user import User
+        from models.financial_record import FinancialRecord
+        
+        # Create tables
+        db.create_all()
+        
+        # Check if admin already exists
+        admin = User.query.filter_by(email='admin@finance.com').first()
+        if admin:
+            return jsonify(ok=False, msg="Database already initialized")
+        
+        # Create default admin user
+        admin = User(
+            email='admin@finance.com',
+            role='Admin',
+            status='active'
+        )
+        admin.set_password('admin123')
+        db.session.add(admin)
+        db.session.commit()
+        
+        return jsonify(ok=True, msg="Database initialized successfully! Default admin: admin@finance.com / admin123")
+    except Exception as e:
+        db.session.rollback()
+        return jsonify(ok=False, error=str(e), msg="Failed to initialize database"), 500
+
 if __name__ == '__main__':
     app.run(debug=True)
