@@ -1,9 +1,14 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
+// Use live backend API in production, local proxy in development
+const baseURL = process.env.NODE_ENV === 'production' 
+  ? 'https://finance-backend-1j75.onrender.com/api'
+  : '/api'
+
 // Create axios instance
 const api = axios.create({
-  baseURL: '/api',
+  baseURL,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json'

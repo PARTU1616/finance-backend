@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd quasar-project && npm install && npm run build",
+  "outputDirectory": "quasar-project/dist/spa",
+  "framework": null,
+  "installCommand": "cd quasar-project && npm install"
+}
