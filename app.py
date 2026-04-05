@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # CORS
-CORS(app, supports_credentials=True, origins=app.config['CORS_ORIGINS'])
+CORS(app, supports_credentials=True, origins=app.config['CORS_ORIGINS'], allow_headers=['Content-Type'], expose_headers=['Set-Cookie'])
 
 # Redis session
 redis_client = redis.from_url(app.config['SESSION_REDIS_URL'])
