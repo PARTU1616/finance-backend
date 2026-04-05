@@ -9,16 +9,25 @@ A role-based financial dashboard system with Flask backend, PostgreSQL database,
 
 ## Live Demo
 
+- **Frontend Application**: https://finance-backend-hvvf.vercel.app
 - **Backend API**: https://finance-backend-1j75.onrender.com
 - **API Base URL**: https://finance-backend-1j75.onrender.com/api
-- **API Documentation**: See below
 - **Test Credentials**: 
   - Email: `admin@finance.com`
   - Password: `admin123`
 
-### Testing the API
+### Using the Application
 
-You can test the API using cURL, Postman, or any HTTP client:
+1. **Visit the frontend**: https://finance-backend-hvvf.vercel.app
+2. **Login** with the credentials above
+3. **Explore**:
+   - Dashboard: View financial summary, category breakdown, and recent transactions
+   - Transactions: View, create, update, and delete transactions (Admin only)
+   - Users: Manage user accounts (Admin only)
+
+### Testing the API Directly
+
+You can also test the API using cURL, Postman, or any HTTP client:
 
 ```bash
 # Login
@@ -30,19 +39,6 @@ curl -X POST https://finance-backend-1j75.onrender.com/api/auth/login/ \
 curl https://finance-backend-1j75.onrender.com/api/dashboard/summary/ \
   -H "Cookie: session=YOUR_SESSION_COOKIE"
 ```
-
-### Frontend UI (Local Development)
-
-The frontend is available in the repository. To run locally:
-
-```bash
-cd quasar-project
-npm install
-npm run dev
-# Open http://localhost:9000
-```
-
-The frontend will connect to the live backend API automatically.
 
 ## Features
 
