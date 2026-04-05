@@ -3,7 +3,17 @@
 **Author**: Prathamesh Galugade  
 **Email**: pratu1616@gmail.com
 
+**Live Backend API**: https://finance-backend-1j75.onrender.com
+
 A role-based financial dashboard system with Flask backend, PostgreSQL database, and Quasar + Vue 3 frontend. The system provides RESTful APIs for managing financial transactions, user accounts, and analytical summaries with three-tier access control.
+
+## Live Demo
+
+- **Backend API**: https://finance-backend-1j75.onrender.com
+- **API Base URL**: https://finance-backend-1j75.onrender.com/api
+- **Test Credentials**: 
+  - Email: `admin@finance.com`
+  - Password: `admin123`
 
 ## Features
 
