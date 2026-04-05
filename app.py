@@ -105,7 +105,10 @@ app.register_blueprint(dashboard_bp)
 
 @app.route('/')
 def index():
-    return jsonify(ok=True, msg="Finance Backend API is running")
+    try:
+        return jsonify(ok=True, msg="Finance Backend API is running", version="1.0.0")
+    except Exception as e:
+        return jsonify(ok=False, error=str(e)), 500
 
 @app.route('/init-db')
 def init_database():

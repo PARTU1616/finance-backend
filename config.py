@@ -16,6 +16,9 @@ class Config:
     PERMANENT_SESSION_LIFETIME = timedelta(days=7)
     SESSION_USE_SIGNER = True
     SESSION_KEY_PREFIX = 'finance_session:'
+    SESSION_COOKIE_SECURE = True  # Required for cross-origin
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = 'None'  # Required for cross-origin
     
     # CORS
     CORS_ORIGINS = os.environ.get('CORS_ORIGINS', 'http://localhost:9000').split(',')
