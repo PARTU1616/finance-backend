@@ -8,6 +8,7 @@ psycopg2-binary==2.9.10
 redis==6.2.0
 bcrypt==4.1.2
 alembic==1.16.4
+gunicorn==21.2.0
 pytest==8.0.0
 hypothesis==6.98.0
 pytest-cov==4.1.0
